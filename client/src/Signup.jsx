@@ -18,6 +18,7 @@ axios
   .post('http://localhost:3001/register', {name, email, password})
   .then((response) => {
     console.log(response);
+    navigate('/login')
   })
   .catch((err) => console.log(err));
 
