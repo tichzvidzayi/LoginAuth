@@ -18,7 +18,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(cookieParser());
-const secretKey = "AB8#94X345#KLU912IO@";
+const secretKey = "AB8#94X345#KLU912IO@";   // fetch from .env file
 mongoose.connect("mongodb://127.0.0.1:27017/users");
 
 app.post("/register", (req, res) => {
@@ -54,13 +54,12 @@ const verifyUser = (req, res, next) => {
 };
 
 app.get("/home", verifyUser, (req, res) => {
-
-    return res.json("Success");
+  return res.json("Success");
 });
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
-  // fetch from .env file
+
 
   UserModel.findOne({ email: email })
     .then((user) => {
