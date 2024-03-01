@@ -9,7 +9,7 @@ const [email, setEmail] = useState(null);
 const [password, setPassword] = useState(null);
 
 const navigate = useNavigate();
-
+axios.defaults.withCredentials =true;
 const handleSubmit = (e) => {
     e.preventDefault()
  
@@ -20,9 +20,10 @@ axios
     console.log(response);
    
     if(response.data === "Success")
+      {
 
-
-    navigate('/Home')
+    navigate('/Home');
+}
   })
   .catch((err) => console.log(err));
 
@@ -74,7 +75,7 @@ axios
                     <p>Create new Account</p>
                 </form>
 
-                <Link to ="/Signup"  className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"> Signup</Link>
+                <Link to ="/register"  className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"> Signup</Link>
 
             </div>
 
